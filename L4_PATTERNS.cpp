@@ -43,7 +43,7 @@ using namespace std;
 // } 
 
 
-//pascal triangle
+//pyramidtriangle
 // int main (){
 //     int n=8;
 
