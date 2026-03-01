@@ -1,37 +1,82 @@
-// public:
-// vector<vector<int>> fourSum(vector<int> &nums, int tar){
-//     vector<vector<int>> ans;
-//     int n=nums.size();
-//      sort(nums.begin(), nums.end());
+// // public:
+// // vector<vector<int>> fourSum(vector<int> &nums, int tar){
+// //     vector<vector<int>> ans;
+// //     int n=nums.size();
+// //      sort(nums.begin(), nums.end());
 
-//      for(int i=0;i<n;i++){
-//         if(i>0&& nums[i]== nums[i-1]) continue;
+// //      for(int i=0;i<n;i++){
+// //         if(i>0&& nums[i]== nums[i-1]) continue;
 
-//         for(int j=i+1; j<n; j++){
-//             int p=j+1, q=n-1;
+// //         for(int j=i+1; j<n; j++){
+// //             int p=j+1, q=n-1;
 
-//             while(p<q){
-//                 long long sum=(long long)nums[i]+(long long)nums[j]+(long long)nums[p]+(long long)nums[q];
-//             // if(sum<tar){
-//                 p++;
-//             }else if(sum >tar){
-//                 q--;
-//             }else{
-//                 ans.push_back({nums[i] , nums[j], nums[p], nums[q]});
-//                 p++;q++;
+// //             while(p<q){
+// //                 long long sum=(long long)nums[i]+(long long)nums[j]+(long long)nums[p]+(long long)nums[q];
+// //             // if(sum<tar){
+// //                 p++;
+// //             }else if(sum >tar){
+// //                 q--;
+// //             }else{
+// //                 ans.push_back({nums[i] , nums[j], nums[p], nums[q]});
+// //                 p++;q++;
 
-//                 while(p<q && nums[p] == nums[p-1]) p++;
-//             }
+// //                 while(p<q && nums[p] == nums[p-1]) p++;
+// //             }
             
+// //             }
+// //             j++;
+// //             while(j<n && nums[j] == nums[j-1]) j++;
+// //         }
+// //      }
+// // }
+// //            
+// //TC=O(NLOGN+N^3)<------ 3 LOOPS
+// //       ^
+// //       |
+// //       |
+// //  BECAUSE OF SORTING 
+
+
+// //chatgpt
+// //class Solution {
+// public:
+//     vector<vector<int>> fourSum(vector<int>& nums, int tar) {
+//         vector<vector<int>> ans;
+//         int n = nums.size();
+        
+//         sort(nums.begin(), nums.end());
+
+//         for(int i = 0; i < n; i++) {
+//             if(i > 0 && nums[i] == nums[i - 1]) continue;
+
+//             for(int j = i + 1; j < n; j++) {
+//                 if(j > i + 1 && nums[j] == nums[j - 1]) continue;
+
+//                 int p = j + 1;
+//                 int q = n - 1;
+
+//                 while(p < q) {
+//                     long long sum = (long long)nums[i] + nums[j] + nums[p] + nums[q];
+
+//                     if(sum < tar) {
+//                         p++;
+//                     }
+//                     else if(sum > tar) {
+//                         q--;
+//                     }
+//                     else {
+//                         ans.push_back({nums[i], nums[j], nums[p], nums[q]});
+                        
+//                         p++;
+//                         q--;
+
+//                         while(p < q && nums[p] == nums[p - 1]) p++;
+//                         while(p < q && nums[q] == nums[q + 1]) q--;
+//                     }
+//                 }
 //             }
-//             j++;
-//             while(j<n && nums[j] == nums[j-1]) j++;
 //         }
-//      }
-// }
-//            
-//TC=O(NLOGN+N^3)<------ 3 LOOPS
-//       ^
-//       |
-//       |
-//  BECAUSE OF SORTING 
+
+//         return ans;
+//     }
+// };
